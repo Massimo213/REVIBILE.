@@ -1,0 +1,128 @@
+/* Hero Section */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  padding: 22px 188px 22px 152px;
+  column-gap: 101px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Heading */
+.h1.hero__heading {
+  margin-top: 74px;
+  margin-bottom: 16px;
+  color: var(--primary-100);
+  letter-spacing: -2.5px;
+  font-size: 3.5rem;
+  line-height: 1.2;
+  position: relative;
+  overflow: hidden;
+}
+
+.h1.hero__heading span {
+  display: inline-block;
+  animation: bounceText 2s ease-in-out infinite;
+}
+
+.hero__heading-gradient {
+  background: var(--gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+  position: relative;
+  z-index: 1;
+  animation: glow 3s infinite alternate;
+}
+
+/* Subheading */
+.text-reg.hero__subheading {
+  color: var(--primary-100);
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  animation: slideIn 1.5s ease-in-out;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Button */
+.hero__input-container {
+  position: relative;
+  overflow: hidden;
+  width: 434px;
+  height: 68px;
+  border-radius: 8px;
+}
+
+.hero__submit {
+  position: absolute;
+  border: none;
+  padding: 0px;
+  top: 4px;
+  left: 20px;
+  right: auto;
+  height: 56px;
+  width: 180px;
+  border-radius: 8px;
+  background: var(--gradient);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary-400);
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.hero__submit:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.hero__arrow {
+  height: 24px;
+  width: 24px;
+  border: 1px solid var(--primary-300);
+  border-radius: 8px;
+  margin-left: 8px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.hero__submit:hover .hero__arrow {
+  transform: rotate(90deg);
+}
+
+
+
+
+/* Animations */
+@keyframes bounceText {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 8px rgba(1, 115, 115, 0.8), 0 0 15px rgba(170, 217, 209, 0.7);
+  }
+  to {
+    text-shadow: 0 0 16px rgba(1, 115, 115, 0.9), 0 0 25px rgba(170, 217, 209, 1);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

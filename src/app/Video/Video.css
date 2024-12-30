@@ -1,0 +1,217 @@
+/* Root Styles */
+.video {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden;
+  font-family: 'DM Sans', sans-serif; /* Ensure consistent font usage */
+}
+
+.video__container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.video__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.5) blur(2px); /* Modern blur effect */
+  transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.5s ease;
+}
+
+.video__container:hover .video__image {
+  transform: scale(1.15); /* Larger zoom on hover */
+  filter: brightness(0.8) blur(0); /* Remove blur on hover */
+}
+
+/* Overlay Styles */
+.video__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  opacity: 0;
+  animation: fadeIn 2s forwards 1s; /* Smooth fade-in */
+}
+
+.video__content {
+  text-align: center;
+  color: white;
+  transform: translateY(20px);
+  opacity: 0;
+  animation: slideUp 1.5s forwards 1.2s;
+}
+
+/* Title Animations */
+.video__title {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: var(--primary-100);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.video__moving-word {
+  display: inline-block;
+  animation: moveWords 4s ease-in-out infinite;
+}
+
+.video__gradient-text {
+  background: linear-gradient(to right, #017373, #aad9d1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 5s infinite; /* Shifting gradient */
+}
+
+/* Message Animations */
+.video__message {
+  font-size: 1.5rem;
+  line-height: 1.8;
+  margin-top: 20px;
+}
+
+.video__demo-link {
+  color: var(--secondary-100);
+  text-decoration: none;
+  font-weight: bold;
+  border-bottom: 2px solid var(--secondary-100);
+  transition: color 0.4s ease, border-bottom-color 0.4s ease;
+}
+
+.video__demo-link:hover {
+  color: var(--secondary-200);
+  border-bottom-color: var(--secondary-200);
+}
+
+/* Gradient Decorations */
+.video__gradients {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.video-gradient {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(1, 115, 115, 0.6), transparent);
+  animation: float 6s ease-in-out infinite;
+}
+
+.video__tl-gradient {
+  top: -100px;
+  left: -100px;
+  width: 300px;
+  height: 300px;
+}
+
+.video__br-gradient {
+  bottom: -100px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  transform: rotate(180deg);
+}
+
+/* Keyframes for Animations */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes moveWords {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(10deg);
+  }
+}
+
+/* Responsive Design */
+
+/* Mobile */
+@media (max-width: 767px) {
+  .video__title {
+    font-size: 2.5rem;
+  }
+
+  .video__message {
+    font-size: 1.2rem;
+  }
+
+  .video-gradient {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* Tablet and Larger */
+@media (min-width: 768px) {
+  .video__title {
+    font-size: 3rem;
+  }
+
+  .video__message {
+    font-size: 1.5rem;
+  }
+
+  .video-gradient {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .video__title {
+    font-size: 3.5rem;
+  }
+
+  .video-gradient {
+    width: 400px;
+    height: 400px;
+  }
+}

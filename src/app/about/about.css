@@ -1,0 +1,199 @@
+/* About Section */
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  padding: 100px 100px;
+  min-height: 100vh;
+  font-family: "DM Sans", sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background Glow */
+.about::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(1, 115, 115, 0.5), transparent);
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  animation: pulse 4s infinite;
+}
+
+/* Content */
+.about__content {
+  max-width: 900px;
+  text-align: center;
+  z-index: 1;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Heading */
+.about__heading {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 50px;
+  margin-top: -300px;
+  line-height: 1.2;
+  background: linear-gradient(to right, #017373, #aad9d1);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  animation: gradientGlow 3s ease-in-out infinite alternate;
+}
+
+/* Animated Gradient for Words */
+.about__gradient {
+  font-weight: 900;
+  background: var(--gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Description */
+.about__description {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+  animation: fadeInUp 2s ease-in-out;
+}
+
+/* Features Section */
+.about__features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+  z-index: 1;
+}
+
+/* Feature Cards */
+.feature {
+  background: rgba(255, 255, 255, 0.07);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: zoomIn 1.5s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+}
+
+/* Feature Glow Effect */
+.feature::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(1, 115, 115, 0.2), transparent);
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 0;
+}
+
+.feature:hover::before {
+  opacity: 1;
+  transform: scale(1.5);
+}
+
+/* Feature Titles */
+.feature__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  background: var(--gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glow 3s infinite alternate;
+}
+
+/* Feature Text */
+.feature__text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--primary-100);
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes gradientGlow {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #017373, 0 0 20px #aad9d1;
+  }
+  to {
+    text-shadow: 0 0 20px #aad9d1, 0 0 40px #017373;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.5;
+  }
+}

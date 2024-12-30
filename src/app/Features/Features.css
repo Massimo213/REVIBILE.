@@ -1,0 +1,142 @@
+.features {
+  padding: 70px 0px;
+  position: relative;
+}
+
+.features__heading-container {
+  margin-bottom: 88px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.h2.features__heading {
+  color: var(--primary-100);
+  margin-bottom: 14px;
+}
+
+.h2.features__text-gradient {
+  background: var(--gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -1.8px;
+  font-weight: 800;
+}
+
+.features__subheading {
+  max-width: 680px;
+  color: var(--primary-100);
+  text-align: center;
+}
+
+.features__feature-container {
+  display: grid;
+  grid-template-areas:
+    "tl tl tr tr"
+    "bl blm brm br";
+  grid-template-columns: repeat(4, 271px);
+  place-content: center;
+  gap: 20px 24px;
+}
+
+.feature {
+  padding: 32px 32px 35px 32px;
+  border: 1px solid rgba(4, 140, 128, 0.5);
+  border-radius: 12px;
+  background: var(--primary-300);
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.feature::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(4, 140, 128, 0.2), transparent);
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.5s;
+  transform: scale(0);
+  z-index: 0;
+}
+
+.feature:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.feature:hover {
+  transform: scale(1.1) rotate(3deg); /* Slight rotation for dynamic effect */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(4, 140, 128, 0.4);
+  z-index: 10; /* Bring the hovered feature above others */
+}
+
+.feature__icon {
+  height: 32px;
+  width: 32px;
+  margin-bottom: 24px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 4px;
+  border: 1px solid var(--secondary-200);
+  background: var(--primary-200);
+  transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+}
+
+.feature:hover .feature__icon {
+  transform: scale(1.4) rotate(20deg);
+  background: var(--gradient);
+  box-shadow: 0 8px 16px rgba(4, 140, 128, 0.5);
+}
+
+.text-large.feature__heading {
+  color: var(--primary-100);
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1; /* Ensure it stays above the background effects */
+  transition: color 0.3s;
+}
+
+.feature:hover .text-large.feature__heading {
+  color: var(--secondary-300);
+}
+
+.feature__description {
+  color: var(--accent);
+  transition: transform 0.3s, color 0.3s ease-in-out;
+  z-index: 1;
+  position: relative;
+}
+
+.feature:hover .feature__description {
+  transform: translateY(-10px);
+  color: var(--secondary-200);
+}
+
+.features__overlay-gradient {
+  background: center no-repeat url("/features/radial-gradient-features.png");
+  width: 350px;
+  height: 350px;
+  position: absolute;
+  top: 45%;
+  left: 32%;
+}
+
+/* Add subtle bounce effect */
+.feature:hover {
+  animation: bounce 1.5s infinite ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(1.1) rotate(3deg) translateY(0);
+  }
+  50% {
+    transform: scale(1.12) rotate(0deg) translateY(-5px);
+  }
+}

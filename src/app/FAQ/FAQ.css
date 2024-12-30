@@ -1,0 +1,139 @@
+.faq {
+  padding: 96px 0px;
+  position: relative;
+  overflow: hidden; /* Ensures no overflow during animations */
+}
+
+.faq__heading-section {
+  max-width: 800px;
+  margin: auto;
+  margin-bottom: 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px 0px;
+  text-align: center;
+  position: relative;
+  animation: fadeInUp 1.2s ease-in-out; /* Heading fade-in animation */
+}
+
+.faq__heading {
+  color: var(--primary-100);
+  font-size: 3rem;
+  letter-spacing: -1.5px;
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(90deg, var(--secondary-200), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textGlow 2s infinite; /* Glowing gradient animation */
+}
+
+.faq__description {
+  color: var(--primary-200);
+  position: relative;
+  font-size: 1.2rem;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Add hover animations for child elements (FAQs) */
+.faq__content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.faq__item {
+  padding: 20px 24px;
+  background: var(--primary-300);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.faq__item:hover {
+  transform: scale(1.05) rotate(2deg); /* Dynamic hover effect */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(4, 140, 128, 0.4);
+}
+
+.faq__item:hover::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(4, 140, 128, 0.2), transparent);
+  opacity: 0.5;
+  transform: scale(1.2);
+  z-index: 0;
+  animation: spin 1.5s infinite linear; /* Rotating glow effect */
+}
+
+.faq__item__question {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-100);
+  z-index: 1;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.faq__item:hover .faq__item__question {
+  color: var(--secondary-300);
+}
+
+.faq__item__answer {
+  color: var(--primary-200);
+  margin-top: 10px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.faq__item:hover .faq__item__answer {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Keyframes for Animations */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes textGlow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg) scale(1.2);
+  }
+  100% {
+    transform: rotate(360deg) scale(1.2);
+  }
+}
