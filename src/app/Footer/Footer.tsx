@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="footer__content-left">
           <div className="footer__company-container">
             <img className="footer__logo" src="logo.svg" alt="icon" />
-            <h2 className="footer__company">Elystra</h2>
+            <h2 className="footer__company">REVIBILE.</h2>
           </div>
           <div className="footer__input-container">
             <input
